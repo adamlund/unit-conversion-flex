@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "Converts temperatures from one units to another",
   "main": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/adamlund/unit-conversion-flex"
+  },
+  "homepage": "https://adamlund.github.io/unit-conversion-flex/",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watchAll",

@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/adamlund/unit-conversion-flex.svg?branch=master)](https://travis-ci.org/adamlund/unit-conversion-flex)
 # Unit Conversion
 Simple React app to test a converted temperature value from one unit to another.
 
