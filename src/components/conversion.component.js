@@ -1,24 +1,12 @@
 import React from 'react';
+import CompareValues from './comparison.component';
 import { ConvertToUnit, THERMAL_UNITS } from '../services/unitconversion.service';
 
 /**
- * Ordinarily would import my own library for this...
+ * Shorthand to capitalize
  * @param {string} str capitalize
  */
 const Cap = str => (`${str.charAt(0).toUpperCase()}${str.slice(1)}`);
-
-/**
- * Internal functional component to render value comparison.
- * @param {inputTemp: float, targetTemp: float } props provide inputTemp and targetTemp as float values 
- */
-const CompareValues = ({ inputTemp, targetTemp }) => {
-    if(isNaN(inputTemp)) {
-        return <span data-qa="indicator-invalid" className="indicator invalid">Invalid</span>
-    }
-    return (inputTemp.toFixed(2) === targetTemp.toFixed(2))
-        ? <span data-qa="indicator-correct" className="indicator correct">Correct</span>
-        : <span data-qa="indicator-incorrect" className="indicator incorrect">Incorrect</span>;
-};
 
 /**
  * Given a temperature input, input unit, output unit, and test value.
@@ -81,6 +69,7 @@ class UnitConversion extends React.Component {
                     <CompareValues
                         inputTemp={ConvertToUnit(inputTemp, inputUnit, targetUnit)}
                         targetTemp={parseFloat(targetTemp)}
+                        precision={0}
                     />
                 }
             </div>
