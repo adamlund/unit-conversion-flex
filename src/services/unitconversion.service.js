@@ -1,3 +1,6 @@
+/**
+ * Standard string values for supported thermal units
+ */
 export const THERMAL_UNITS = {
     C: 'celcius',
     F: 'fahrenheight',
@@ -46,7 +49,7 @@ function KelvinToUnit(value, unitTo) {
 /**
  * Convert a temperature value from one unit to another.
  * First convert all incoming values to Kelvin as the SI unit.
- * @param {string or float} value 
+ * @param {string or number} value 
  * @param {string} unitFrom one from THERMAL_UNITS, source
  * @param {string} unitTo one from THERMAL_UNITS, target
  */
@@ -55,3 +58,11 @@ export const ConvertToUnit = (value, unitFrom, unitTo) => {
         ? parseFloat(value)
         : parseFloat(KelvinToUnit(UnitToKelvin(parseFloat(value), unitFrom), unitTo));
 };
+
+/**
+ * Test equality of decimal numbers using toFixed(n)
+ * @param {number} a decimal number
+ * @param {number} b decimal number
+ * @param {number} precision 0-3 to specify precision value for toFixed(n)
+ */
+export const FloatEq = (a, b, precision) => (a.toFixed(precision) === b.toFixed(precision));
