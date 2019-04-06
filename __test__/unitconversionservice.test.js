@@ -10,6 +10,14 @@ describe('Unit Conversion Tests', () => {
         });
     });
 
+    it('Let\'s test equality for FloatEq', () => {
+        expect(FloatEq(0.5, 1.499999)).toBe(true);
+        expect(FloatEq(0.5, 1.5)).toBe(false);
+        expect(FloatEq(1.23, 1.55)).toBe(false);
+        expect(FloatEq(1.23, 1.23)).toBe(true);
+        expect(FloatEq(0.233333, 0.23334)).toBe(true);
+    });
+
     it('Should convert F values to C,K,R', () => {
         const testValue = 4;
         expect(FloatEq(ConvertToUnit(testValue, THERMAL_UNITS.F, THERMAL_UNITS.C), -15.56, 2)).toBe(true);
